@@ -61,4 +61,12 @@
 ##７、策略模式的缺点
 　　●　　客户端必须知道所有的策略类，并自行决定使用哪一个策略类。这就意味着客户端必须理解这些算法的区别，以便适时选择恰当的算法类。换言之，策略模式只适用于客户端知道算法或行为的情况。
 
-　　●　　由于策略模式把每个具体的策略实现都单独封装成为类，如果备选的策略很多的话，那么对象的数目就会很可观。
+　　●　　由于策略模式把每个具体的策略实现都单独封装成为类，如果备选的策略很多的话，那么对象的数目就会很可观。  
+
+##8、在android中使用
+　　●　　listView.setAdapter(),里面的Adapter ，一般都是自定义的Adapter ，继承自BaseAdapter ，这就是典型的策略模式，当ListView 的Item呈现不同形式，在getView方法中，就得不同的实现。  
+
+　　●　　Animation不同动画的实现  
+![](https://github.com/vikingden8/DesignPatterns-Java/blob/master/images/strategy/animation_01.png)  
+
+![](https://github.com/vikingden8/DesignPatterns-Java/blob/master/images/strategy/animation_02.png)
