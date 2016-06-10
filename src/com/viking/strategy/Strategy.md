@@ -21,7 +21,29 @@
 　　●　　具体策略(ConcreteStrategy)角色：包装了相关的算法或行为。
 
 ##４、策略模式的代码示例
-　　 　　无
+   这里我们用支付的方式来说明策略模式的使用  
+   
+　　●　　首先创建策略的接口，在本示例中要支付的金额作为参数传递  
+   ![](https://github.com/vikingden8/DesignPatterns-Java/blob/master/images/strategy/pay_01.png)
+   
+　　●　　然后创建三种不同的支付策略实现类，使用中国建设银行、微信和支付宝策略支付  
+   ![](https://github.com/vikingden8/DesignPatterns-Java/blob/master/images/strategy/pay_02.png)  
+   
+   ![](https://github.com/vikingden8/DesignPatterns-Java/blob/master/images/strategy/pay_03.png)  
+   
+   ![](https://github.com/vikingden8/DesignPatterns-Java/blob/master/images/strategy/pay_04.png)
+   
+　　●　　实现简单的购物车逻辑，以及在其中定义一个pay方法，参数为具体的支付类型  
+   ![](https://github.com/vikingden8/DesignPatterns-Java/blob/master/images/strategy/pay_05.png)  
+   
+   ![](https://github.com/vikingden8/DesignPatterns-Java/blob/master/images/strategy/pay_06.png)
+  
+　　●　　编写客户端测试类  
+    ![](https://github.com/vikingden8/DesignPatterns-Java/blob/master/images/strategy/pay_07.png)
+    
+　　●　　测试输出结果  
+    ![](https://github.com/vikingden8/DesignPatterns-Java/blob/master/images/strategy/pay_08.png)
+    
 ##５、策略模式的使用场景
 　　●　　许多相关类仅仅是行为不同。  
 
