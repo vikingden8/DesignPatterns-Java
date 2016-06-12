@@ -77,22 +77,22 @@
 ## 8、在Android中的应用  
    Observer(观察者)，DataSetObserver抽象2个方法，一个是观察数据改变的方法，一个是观察数据变成无效（或者不可用）时的方法。
    源码地址：framework/base/core/Java/android/database/DataSetObserver.java  
-   ![](https://github.com/vikingden8/DesignPatterns-Java/blob/master/images/observer/observer_06.png)  
+   ![](https://github.com/vikingden8/DesignPatterns-Java/blob/master/images/observer/observer_07.png)  
    
    Subject(目标)，Observable<T>是一个泛型的抽象类，主要功能是注册和撤销observer。  
    源码地址：framework/base/core/java/android/database/Observable.java  
-   ![](https://github.com/vikingden8/DesignPatterns-Java/blob/master/images/observer/observer_07.png)  
+   ![](https://github.com/vikingden8/DesignPatterns-Java/blob/master/images/observer/observer_08.png)  
    
    ConcreteSubject(具体目标)，实现的方法同Oberver一样，只不过它是通知ArrayList<Observer>下的每个Oberver去执行各自的action。  
    源码地址：framework/base/core/java/android/database/DataSetObservable.java  
-   ![](https://github.com/vikingden8/DesignPatterns-Java/blob/master/images/observer/observer_08.png) 
+   ![](https://github.com/vikingden8/DesignPatterns-Java/blob/master/images/observer/observer_09.png) 
    
    ConcreteObserver(具体观察者),具体观察者的任务是实实在在执行action的类，一般由开发者根据实际情况，自己实现。android也有实现
    的例子。
    源码地址：framework/base/core/java/android/widget/AbsListView.java  
-   ![](https://github.com/vikingden8/DesignPatterns-Java/blob/master/images/observer/observer_09.png)  
+   ![](https://github.com/vikingden8/DesignPatterns-Java/blob/master/images/observer/observer_9_5.png)  
    
-   远吗地址：framework/base/core/java/android/widget/AdapterView.java  
+   源码地址：framework/base/core/java/android/widget/AdapterView.java  
    ![](https://github.com/vikingden8/DesignPatterns-Java/blob/master/images/observer/observer_10.png)  
    
    其实运用的是大家熟悉的BaseAdapter，BaseAdapter关联了一个DataSetObservable对象，并实现registerDataSetObserver和
