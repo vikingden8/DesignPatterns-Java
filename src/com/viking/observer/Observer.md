@@ -41,10 +41,76 @@
    
 ## 5、观察者模式的使用场景  
 
+   GOF给出了以下使用观察者模式的情况：  
+   
+        1) 当一个抽象模型有两个方面, 其中一个方面依赖于另一方面。将这二者封装在独立的对象中以使它们可以各自独立地改变和复用。  
+        
+        2) 当对一个对象的改变需要同时改变其它对象, 而不知道具体有多少对象有待改变。  
+        
+        3) 当一个对象必须通知其它对象，而它又不能假定其它对象是谁。需要在系统中创建一个触发链，A对象的行为将影响B对象，
+        B对象的行为将影响C对象……，可以使用观察者模式创建一种链式触发机制。换言之, 你不希望这些对象是紧密耦合的。  
+              
+   其实观察者模式同前面讲过的桥梁、策略有着共同的使用环境：将变化独立封装起来，以达到最大的重用和解耦。观察者与后两者不同的地方在于，
+   观察者模式中的目标和观察者的变化不是独立的，而是有着某些联系。  
+        
 ## 6、观察者模式的优点  
+
+   第一、观察者模式在被观察者和观察者之间建立一个抽象的耦合。被观察者角色所知道的只是一个具体观察者列表，每一个具体观察者都符合一个
+   抽象观察者的接口。被观察者并不认识任何一个具体观察者，它只知道它们都有一个共同的接口。  
+   
+   由于被观察者和观察者没有紧密地耦合在一起，因此它们可以属于不同的抽象化层次。如果被观察者和观察者都被扔到一起，那么这个对象必然跨
+   越抽象化和具体化层次。  
+   
+   第二、观察者模式支持广播通讯。被观察者会向所有的登记过的观察者发出通知.  
 
 ## 7、观察者模式的缺点  
 
+   第一、如果一个被观察者对象有很多的直接和间接的观察者的话，将所有的观察者都通知到会花费很多时间。  
+   
+   第二、如果在被观察者之间有循环依赖的话，被观察者会触发它们之间进行循环调用，导致系统崩溃。在使用观察者模式是要特别注意这一点。  
+   
+   第三、如果对观察者的通知是通过另外的线程进行异步投递的话，系统必须保证投递是以自恰的方式进行的。  
+   
+   第四、虽然观察者模式可以随时使观察者知道所观察的对象发生了变化，但是观察者模式没有相应的机制使观察者知道所观察的对象是怎么发生
+   变化的。  
+   
 ## 8、在Android中的应用  
+   Observer(观察者)，DataSetObserver抽象2个方法，一个是观察数据改变的方法，一个是观察数据变成无效（或者不可用）时的方法。
+   源码地址：framework/base/core/Java/android/database/DataSetObserver.java  
+   ![](https://github.com/vikingden8/DesignPatterns-Java/blob/master/images/observer/observer_06.png)  
+   
+   Subject(目标)，Observable<T>是一个泛型的抽象类，主要功能是注册和撤销observer。  
+   源码地址：framework/base/core/java/android/database/Observable.java  
+   ![](https://github.com/vikingden8/DesignPatterns-Java/blob/master/images/observer/observer_07.png)  
+   
+   ConcreteSubject(具体目标)，实现的方法同Oberver一样，只不过它是通知ArrayList<Observer>下的每个Oberver去执行各自的action。  
+   源码地址：framework/base/core/java/android/database/DataSetObservable.java  
+   ![](https://github.com/vikingden8/DesignPatterns-Java/blob/master/images/observer/observer_08.png) 
+   
+   ConcreteObserver(具体观察者),具体观察者的任务是实实在在执行action的类，一般由开发者根据实际情况，自己实现。android也有实现
+   的例子。
+   源码地址：framework/base/core/java/android/widget/AbsListView.java  
+   ![](https://github.com/vikingden8/DesignPatterns-Java/blob/master/images/observer/observer_09.png)  
+   
+   远吗地址：framework/base/core/java/android/widget/AdapterView.java  
+   ![](https://github.com/vikingden8/DesignPatterns-Java/blob/master/images/observer/observer_10.png)  
+   
+   其实运用的是大家熟悉的BaseAdapter，BaseAdapter关联了一个DataSetObservable对象，并实现registerDataSetObserver和
+   unregisterDataSetObserver两个方法实现注册和撤销Observer，方法notifyDataSetChanged间接调用Observer的实现者
+   的onChange()方法，以达到通知数据改变的作用。使用ListView和BaseAdapter组合时，当BaseAdapter的item改变时，我们经常会
+   调用notifyDataSetChanged()，通知Listview刷新。  
+   
+   但是，但是，但是，我们从来没有调用BaseAdapter的registerDataSetObserver(DataSetObserver observer)注册Observer，
+   那么Listview如何接收到通知，并执行刷新动作呢？  
+   ![](https://github.com/vikingden8/DesignPatterns-Java/blob/master/images/observer/observer_11.png)  
+      
+   注意下面3行  
+   ![](https://github.com/vikingden8/DesignPatterns-Java/blob/master/images/observer/observer_12.png)
+   
+   ![](https://github.com/vikingden8/DesignPatterns-Java/blob/master/images/observer/observer_13.png)
+   
+   当我们setAdapter(ListAdapter adapter)时，BaseAdapter同时注册了AdapterDataSetObserver()，至于AdapterDataSetObserver是如何
+   通知Listvew和每个子item刷新（invalidate）的，这里涉及到的内容已经超出文章的范围，具体请查看源码。  
+   
 
     
