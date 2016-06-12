@@ -75,7 +75,7 @@
    变化的。  
    
 ## 8、在Android中的应用  
-   Observer(观察者)，DataSetObserver抽象2个方法，一个是观察数据改变的方法，一个是观察数据变成无效（或者不可用）时的方法。
+   Observer(观察者)，DataSetObserver抽象2个方法，一个是观察数据改变的方法，一个是观察数据变成无效（或者不可用）时的方法。  
    源码地址：framework/base/core/Java/android/database/DataSetObserver.java  
    ![](https://github.com/vikingden8/DesignPatterns-Java/blob/master/images/observer/observer_07.png)  
    
@@ -88,7 +88,7 @@
    ![](https://github.com/vikingden8/DesignPatterns-Java/blob/master/images/observer/observer_09.png) 
    
    ConcreteObserver(具体观察者),具体观察者的任务是实实在在执行action的类，一般由开发者根据实际情况，自己实现。android也有实现
-   的例子。
+   的例子。  
    源码地址：framework/base/core/java/android/widget/AbsListView.java  
    ![](https://github.com/vikingden8/DesignPatterns-Java/blob/master/images/observer/observer_9_5.png)  
    
