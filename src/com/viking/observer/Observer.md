@@ -112,5 +112,14 @@
    当我们setAdapter(ListAdapter adapter)时，BaseAdapter同时注册了AdapterDataSetObserver()，至于AdapterDataSetObserver是如何
    通知Listvew和每个子item刷新（invalidate）的，这里涉及到的内容已经超出文章的范围，具体请查看源码。  
    
+   
+## 9、观察者模式的引申  
+
+###  [观察者模式-推模型和拉模型]()  
+
+###  [观察者模式在JDK的实现]()  
+
+
+
 
     
