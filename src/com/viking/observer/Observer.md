@@ -115,7 +115,7 @@
    
 ## 9、观察者模式的引申  
 
-###  [观察者模式-推模型和拉模型]()  
+###  [观察者模式-推模型和拉模型](https://github.com/vikingden8/DesignPatterns-Java/blob/master/src/com/viking/observer/Observer_push_and_pull_model.md)  
 
 ###  [观察者模式在JDK的实现]()  
 
