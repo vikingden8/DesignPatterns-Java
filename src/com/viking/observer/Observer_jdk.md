@@ -6,8 +6,6 @@
 
 在源码中，有两个notifyObservers方法，其中的主要差别就是一个是自带内容，另一个自带内容为null，其实也就是JDK的Observer接口默认是同时支持推模型和拉模型，如下：
 
-'''java  
-
     public void notifyObservers() {
             notifyObservers(null);
         }
@@ -16,8 +14,6 @@
             ...
             ...
         }  
-'''  
-
         
 在第二个notifyObservers方法中的代码实现，有一同步代码段：  
 
