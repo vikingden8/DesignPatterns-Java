@@ -16,8 +16,11 @@ public class SubMan implements Observer {
     @Override
     public void update(Observable o, Object arg) {
         String content = (String) arg;
-        Log.info("Observer-JDK" , "received news content : " + content);
+        Log.info("Observer-JDK" , name + " received news content : " + content);
     }
 }
+
+
+
 
 
