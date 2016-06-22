@@ -31,7 +31,7 @@
 部件二  
 ![](https://github.com/vikingden8/DesignPatterns-Java/blob/master/images/builder/builder_04.png)  
 
-部件三 
+部件三    
 ![](https://github.com/vikingden8/DesignPatterns-Java/blob/master/images/builder/builder_05.png) 
 
 抽象的Builder对象  
