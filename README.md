@@ -5,4 +5,6 @@ Self-study design patterns in java language.
 
 ##[Observer Pattern-观察者模式](https://github.com/vikingden8/DesignPatterns-Java/blob/master/src/com/viking/observer/Observer.md)  
 
-##[Builder Pattern-建造者模式](https://github.com/vikingden8/DesignPatterns-Java/blob/master/src/com/viking/builder/Builder.md)  
+##[Builder Pattern-建造者模式](https://github.com/vikingden8/DesignPatterns-Java/blob/master/src/com/viking/builder/Builder.md) 
+  
+##[Template Method Pattern-模板方法模式](https://github.com/vikingden8/DesignPatterns-Java/blob/master/src/com/viking/template/Template.md)  
